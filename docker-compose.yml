@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:C:\Users\netan\DOCKER\D4
+      - C:\Users\netan\DOCKER\D4\node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://postgres:122236@localhost:5432/todo
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "122236"
+      POSTGRES_DB: todo
